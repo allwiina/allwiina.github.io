@@ -1,0 +1,547 @@
+<title>Allwin A – Finance Professional</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+/* Design Plan: Professional finance portfolio with clean typography, blue/teal accent,
+   and clear hierarchy. Two-column layout on desktop, single column on mobile. */
+
+:root {
+  /* Color Tokens */
+  --bg: #ffffff;
+  --bg-secondary: #f8f9fa;
+  --fg: #1a1a1a;
+  --fg-light: #666666;
+  --accent: #0066cc;
+  --accent-light: #e6f0ff;
+  --border: #e0e0e0;
+  --success: #10b981;
+
+  /* Type Tokens */
+  --font-display: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  --font-body: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+
+  /* Spacing */
+  --spacing-xs: 0.5rem;
+  --spacing-sm: 1rem;
+  --spacing-md: 1.5rem;
+  --spacing-lg: 2rem;
+  --spacing-xl: 3rem;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #1a1a1a;
+    --bg-secondary: #242424;
+    --fg: #ffffff;
+    --fg-light: #b0b0b0;
+    --accent: #66b3ff;
+    --accent-light: #1a3a66;
+    --border: #404040;
+    --success: #34d399;
+    color-scheme: dark;
+  }
+}
+
+:root[data-theme="dark"] {
+  --bg: #1a1a1a;
+  --bg-secondary: #242424;
+  --fg: #ffffff;
+  --fg-light: #b0b0b0;
+  --accent: #66b3ff;
+  --accent-light: #1a3a66;
+  --border: #404040;
+  --success: #34d399;
+  color-scheme: dark;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  line-height: 1.6;
+  padding: var(--spacing-lg);
+}
+
+/* Header / Navigation */
+header {
+  max-width: 1000px;
+  margin: 0 auto var(--spacing-xl);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+}
+
+h1 {
+  font-size: 1.8rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  color: var(--fg);
+}
+
+.subtitle {
+  color: var(--accent);
+  font-size: 0.95rem;
+  font-weight: 500;
+}
+
+nav {
+  display: flex;
+  gap: var(--spacing-md);
+}
+
+nav a {
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 0.9rem;
+  padding: var(--spacing-xs) var(--spacing-sm);
+  border-radius: 4px;
+  transition: background 0.2s;
+}
+
+nav a:hover {
+  background: var(--accent-light);
+}
+
+/* Main Content */
+main {
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+section {
+  margin-bottom: var(--spacing-xl);
+}
+
+section h2 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  font-family: var(--font-display);
+  margin-bottom: var(--spacing-md);
+  padding-bottom: var(--spacing-sm);
+  border-bottom: 2px solid var(--accent);
+  color: var(--fg);
+}
+
+/* About Section */
+.about-text {
+  color: var(--fg-light);
+  font-size: 1rem;
+  line-height: 1.8;
+  max-width: 700px;
+}
+
+.highlights {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.highlight-item {
+  flex: 1;
+  min-width: 150px;
+  padding: var(--spacing-sm);
+  background: var(--accent-light);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+}
+
+.highlight-item strong {
+  display: block;
+  color: var(--accent);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-xs);
+}
+
+.highlight-item span {
+  color: var(--fg);
+  font-size: 1.2rem;
+  font-weight: 600;
+}
+
+/* Projects Section */
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--spacing-lg);
+  margin-top: var(--spacing-md);
+}
+
+.project-card {
+  background: var(--bg-secondary);
+  border: 1px solid var(--border);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+}
+
+.project-card h3 {
+  font-size: 1.2rem;
+  font-weight: 700;
+  color: var(--fg);
+  margin-bottom: var(--spacing-sm);
+}
+
+.project-meta {
+  display: flex;
+  gap: var(--spacing-sm);
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+}
+
+.tool-badge {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 4px 10px;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+}
+
+.project-description {
+  color: var(--fg-light);
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: var(--spacing-md);
+}
+
+.project-highlights {
+  list-style: none;
+}
+
+.project-highlights li {
+  padding: var(--spacing-xs) 0;
+  color: var(--fg-light);
+  font-size: 0.9rem;
+  position: relative;
+  padding-left: var(--spacing-md);
+}
+
+.project-highlights li:before {
+  content: "✓";
+  position: absolute;
+  left: 0;
+  color: var(--success);
+  font-weight: bold;
+}
+
+/* Skills Section */
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--spacing-md);
+  margin-top: var(--spacing-md);
+}
+
+.skill-group h4 {
+  color: var(--accent);
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: var(--spacing-sm);
+  font-weight: 700;
+}
+
+.skill-group {
+  padding: var(--spacing-md);
+  background: var(--bg-secondary);
+  border-radius: 8px;
+  border-left: 4px solid var(--accent);
+}
+
+.skill-list {
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.skill-list li {
+  background: var(--accent-light);
+  color: var(--accent);
+  padding: 6px 12px;
+  border-radius: 16px;
+  font-size: 0.85rem;
+  font-weight: 500;
+}
+
+/* CTA Section */
+.cta-section {
+  background: var(--accent-light);
+  border: 1px solid var(--accent);
+  border-radius: 12px;
+  padding: var(--spacing-lg);
+  text-align: center;
+  margin-top: var(--spacing-xl);
+}
+
+.cta-section h3 {
+  color: var(--fg);
+  font-size: 1.3rem;
+  margin-bottom: var(--spacing-sm);
+}
+
+.cta-section p {
+  color: var(--fg-light);
+  margin-bottom: var(--spacing-md);
+}
+
+.btn {
+  display: inline-block;
+  background: var(--accent);
+  color: white;
+  padding: var(--spacing-sm) var(--spacing-lg);
+  border-radius: 6px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+  border: none;
+  cursor: pointer;
+  font-size: 0.95rem;
+}
+
+.btn:hover {
+  background: #0052a3;
+}
+
+.btn-secondary {
+  background: transparent;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+  margin-left: var(--spacing-sm);
+}
+
+.btn-secondary:hover {
+  background: var(--accent);
+  color: white;
+}
+
+/* Contact Info */
+.contact-info {
+  text-align: center;
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--border);
+  margin-top: var(--spacing-xl);
+  color: var(--fg-light);
+  font-size: 0.9rem;
+}
+
+.contact-info a {
+  color: var(--accent);
+  text-decoration: none;
+}
+
+.contact-info a:hover {
+  text-decoration: underline;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  body {
+    padding: var(--spacing-md);
+  }
+
+  h1 {
+    font-size: 1.5rem;
+  }
+
+  section h2 {
+    font-size: 1.2rem;
+  }
+
+  header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  nav {
+    width: 100%;
+    flex-wrap: wrap;
+  }
+
+  .project-card {
+    padding: var(--spacing-md);
+  }
+
+  .highlights {
+    flex-direction: column;
+  }
+}
+</style>
+
+<header>
+  <div>
+    <h1>Allwin A</h1>
+    <p class="subtitle">Financial Analysis Professional | MBA Finance & Marketing</p>
+  </div>
+  <nav>
+    <a href="#projects">Projects</a>
+    <a href="#skills">Skills</a>
+    <a href="#contact">Contact</a>
+  </nav>
+</header>
+
+<main>
+  <!-- About Section -->
+  <section id="about">
+    <h2>About</h2>
+    <p class="about-text">
+      Audit Executive with 11 months of Record-to-Report (R2R) and financial reporting experience.
+      CFI FPAP-certified with expertise in budgeting, forecasting, variance analysis, and financial modeling.
+      Proven ability to design and automate financial reporting processes. Seeking Finance Analyst or R2R roles.
+    </p>
+    <div class="highlights">
+      <div class="highlight-item">
+        <strong>Experience</strong>
+        <span>11 Months</span>
+      </div>
+      <div class="highlight-item">
+        <strong>Education</strong>
+        <span>MBA Finance</span>
+      </div>
+      <div class="highlight-item">
+        <strong>Certification</strong>
+        <span>CFI FPAP</span>
+      </div>
+      <div class="highlight-item">
+        <strong>Focus</strong>
+        <span>R2R & FP&A</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- Projects Section -->
+  <section id="projects">
+    <h2>Featured Projects</h2>
+    <div class="projects-grid">
+      <!-- Project 1 -->
+      <div class="project-card">
+        <h3>12-Month Operating Plan & Variance Model</h3>
+        <div class="project-meta">
+          <span class="tool-badge">Excel</span>
+          <span class="tool-badge">Financial Modeling</span>
+          <span class="tool-badge">FP&A</span>
+        </div>
+        <p class="project-description">
+          Built a comprehensive 12-month financial operating plan with revenue forecasting, cost projections,
+          headcount planning, and cash flow analysis.
+        </p>
+        <ul class="project-highlights">
+          <li>Dynamic variance analysis comparing actual vs. budgeted performance</li>
+          <li>Root-cause investigation and KPI tracking dashboard</li>
+          <li>Executive summary with interactive pivot tables and charts</li>
+          <li>Supports financial planning and decision-making</li>
+        </ul>
+      </div>
+
+      <!-- Project 2 -->
+      <div class="project-card">
+        <h3>Juice Shop Revenue Analytics</h3>
+        <div class="project-meta">
+          <span class="tool-badge">Excel</span>
+          <span class="tool-badge">Power Query</span>
+          <span class="tool-badge">Analytics</span>
+        </div>
+        <p class="project-description">
+          Cleaned and analyzed 3 years of transaction data to evaluate business performance and the impact
+          of relocation on sales growth.
+        </p>
+        <ul class="project-highlights">
+          <li>Transformed 3 years of GPay data using Power Query (2023-2026)</li>
+          <li>Built sales analysis model showing relocation impact on revenue</li>
+          <li>Performed payback analysis for equipment investments</li>
+          <li>Forecasted profitability and identified growth trends</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills">
+    <h2>Skills & Expertise</h2>
+    <div class="skills-grid">
+      <div class="skill-group">
+        <h4>R2R & Financial Reporting</h4>
+        <ul class="skill-list">
+          <li>Month-End Close</li>
+          <li>Bank Reconciliation</li>
+          <li>GL Accounting</li>
+          <li>Journal Entries</li>
+          <li>Accruals</li>
+          <li>Financial Statements</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Financial Analysis & Planning</h4>
+        <ul class="skill-list">
+          <li>Budgeting</li>
+          <li>Forecasting</li>
+          <li>Variance Analysis</li>
+          <li>Financial Modeling</li>
+          <li>Cost Control</li>
+          <li>KPI Analysis</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Tools & Systems</h4>
+        <ul class="skill-list">
+          <li>Advanced Excel</li>
+          <li>Power BI</li>
+          <li>Power Query</li>
+          <li>SAP (Basics)</li>
+          <li>Pivot Tables</li>
+          <li>Financial Modeling</li>
+        </ul>
+      </div>
+      <div class="skill-group">
+        <h4>Audit & Compliance</h4>
+        <ul class="skill-list">
+          <li>Invoice Vouching</li>
+          <li>Asset Verification</li>
+          <li>Inventory Audit</li>
+          <li>GST Compliance</li>
+          <li>TDS Reconciliation</li>
+          <li>Audit Documentation</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <div class="cta-section">
+    <h3>Ready to Connect?</h3>
+    <p>Download my resume or get in touch to discuss finance analyst and R2R opportunities.</p>
+    <button class="btn">Download Resume (Word)</button>
+    <button class="btn btn-secondary">Download Resume (PDF)</button>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-info" id="contact">
+    <p>
+      📧 <a href="mailto:allwiin3@gmail.com">allwiin3@gmail.com</a> |
+      📱 +91 9080579356 |
+      🔗 <a href="#">LinkedIn</a>
+    </p>
+    <p style="margin-top: var(--spacing-sm); font-size: 0.85rem;">
+      Based in Hosur, Tamil Nadu | Open to roles in Chennai, Bengaluru, Coimbatore, Hyderabad
+    </p>
+  </div>
+</main>
